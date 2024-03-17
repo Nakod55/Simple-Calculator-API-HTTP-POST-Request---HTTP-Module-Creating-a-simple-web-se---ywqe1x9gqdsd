@@ -106,8 +106,7 @@ app.post("/divide",(req,res)=>{
   {
     res.status(400);
     res.send({
-      status:"error",
-      message:"Cannot divide by zero"
+      error: "Cannot divide by zero"
     })
   }
   if(isNaN(num1)||isNaN(num2))
