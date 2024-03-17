@@ -102,6 +102,14 @@ app.post("/multiply",(req,res)=>{
 app.post("/divide",(req,res)=>{
   const num1=Number(req.body.num1);
   const num2=Number(req.body.num2);
+  if(num2==0)
+  {
+    res.status(400);
+    res.send({
+      status:"error",
+      message:"Cannot divide by zero"
+    })
+  }
   if(isNaN(num1)||isNaN(num2))
   {
     res.status(400).send({
@@ -109,13 +117,7 @@ app.post("/divide",(req,res)=>{
       message: "Invalid data types"
     })
   }
-  if(num2==0)
-  {
-    res.status(400).send({
-      status:"error",
-      message:"Cannot divide by zero"
-    })
-  }
+ 
   const ans=num1/num2;
   if(num1<min||num2<min||ans<min)
   {
