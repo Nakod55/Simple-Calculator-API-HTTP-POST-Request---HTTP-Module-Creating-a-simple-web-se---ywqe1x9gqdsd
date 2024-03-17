@@ -17,7 +17,7 @@ app.post("/add",(req,res)=>{
   console.log(num1,num2);
   if(isNaN(num1)||isNaN(num2))
   {
-    res.send({
+    res.status(400).send({
       status: "error",
       message: "Invalid data types"
     })
@@ -25,14 +25,14 @@ app.post("/add",(req,res)=>{
   const ans=num1+num2;
   if(num1<min||num2<min||ans<min)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Underflow"
     })
   }
   if(num1>max||num2>max||ans>max)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Overflow"
     })
@@ -46,7 +46,7 @@ app.post("/subtract",(req,res)=>{
   const num2=Number(req.body.num2);
   if(isNaN(num1)||isNaN(num2))
   {
-    res.send({
+    res.status(400).send({
       status: "error",
       message: "Invalid data types"
     })
@@ -54,14 +54,14 @@ app.post("/subtract",(req,res)=>{
   const ans=num1-num2;
   if(num1<min||num2<min||ans<min)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Underflow"
     })
   }
   if(num1>max||num2>max||ans>max)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Overflow"
     })
@@ -75,7 +75,7 @@ app.post("/multiply",(req,res)=>{
   const num2=Number(req.body.num2);
   if(isNaN(num1)||isNaN(num2))
   {
-    res.send({
+    res.status(400).send({
       status: "error",
       message: "Invalid data types"
     })
@@ -83,14 +83,14 @@ app.post("/multiply",(req,res)=>{
   const ans=num1*num2;
   if(num1<min||num2<min||ans<min)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Underflow"
     })
   }
   if(num1>max||num2>max||ans>max)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Overflow"
     })
@@ -104,14 +104,14 @@ app.post("/divide",(req,res)=>{
   const num2=Number(req.body.num2);
   if(isNaN(num1)||isNaN(num2))
   {
-    res.send({
+    res.status(400).send({
       status: "error",
       message: "Invalid data types"
     })
   }
   if(num2==0)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Cannot divide by zero"
     })
@@ -119,14 +119,14 @@ app.post("/divide",(req,res)=>{
   const ans=num1/num2;
   if(num1<min||num2<min||ans<min)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Underflow"
     })
   }
   if(num1>max||num2>max||ans>max)
   {
-    res.send({
+    res.status(400).send({
       status:"error",
       message:"Overflow"
     })
